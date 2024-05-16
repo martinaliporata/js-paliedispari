@@ -18,3 +18,8 @@ function getRandomInt(min,max) {
 }
 
 const numeroRandomico = getRandomInt(1,5)
+
+function somma (userNumber, numeroRandomico) {
+    const risultato = userNumber + numeroRandomico
+    return risultato
+}
