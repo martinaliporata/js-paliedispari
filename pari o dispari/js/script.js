@@ -13,13 +13,29 @@ const pariDispari = prompt('Scegli pari o dispari')
 const userNumber = Number.parseInt(prompt('Scegli un numero da 1 a 5'))
 
 function getRandomInt(min,max) {
-    const randomNumber = Math.floor(Math.random() * (max - min +1) + min)
-    return randomNumber
+    const randomNumber = Math.floor(Math.random() * (max - min +1) + min);
+    return randomNumber;
 }
 
 const numeroRandomico = getRandomInt(1,5)
 
 function somma (userNumber, numeroRandomico) {
-    const risultato = userNumber + numeroRandomico
-    return risultato
+    const risultato = userNumber + numeroRandomico;
+    return risultato;
+}
+
+function pari (numero) {
+    return numero % 2 === 0;
+}
+
+function dispari (numero){
+    return numero % 2 === 1;
+}
+
+function funzioneParioDispari (numero) {
+    if (numero%2 === 0) {
+        return pari
+    } else {
+        return dispari
+    }
 }
