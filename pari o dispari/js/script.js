@@ -39,3 +39,11 @@ function funzioneParioDispari (numero) {
         return dispari
     }
 }
+
+function chiHaVinto (numero, numero) {
+    if (somma === pari) {
+        console.log('ha vinto pari')
+    } else (somma === dispari); {
+        console.log('ha vinto dispari')
+    }
+}
