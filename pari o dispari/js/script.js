@@ -9,41 +9,70 @@
 // Sommiamo il numero random e quello scelto dall'utente con una funzione capiamo se è pari o dispari con if
 // Con un if dichiariamo chi ha vinto
 
-const pariDispari = prompt('Scegli pari o dispari')
-const userNumber = Number.parseInt(prompt('Scegli un numero da 1 a 5'))
+let oddOrEven = prompt('Scegli pari o dispari')
+while (oddOrEven !== 'pari' && oddOrEven !== 'dispari') {
+    oddOrEven = prompt('pari o dispari').trim().toLocaleLowerCase()
+}
+
+let userNumber = Number.parseInt(prompt('Scegli un numero da 1 a 5'), 10)
+while (Number.isNaN(userNumber)|| (userNumber<1 && userNumber>5)){
+    userNumber = Number.parseInt (prompt('Scegli un numero da 1 a 5').trim(), 10)
+}
+
+console.log (`L'utente ha scelto $(oddOrEven), e il numero $(userNumber)`)
+
+const aiNumber = getRandomInt(1,5)
+const sum = userNumber + aiNumber;
+
+console.log (`Il computer ha generato $(aiNumber), e la somma dei due numeri è $(sum)`)
+
+let result
+
+if(isEven(sum)=== true) {
+    result = 'pari';
+} else {
+    result= 'dispari'
+}
+
+if(isEven(sum) === false) {
+    result = 'pari';
+} else {
+    result = 'dispari'
+}
+
+if(result===oddOrEven){
+    console.log('Utente vince')
+} else {
+    console.log('Computer vince')
+}
 
 function getRandomInt(min,max) {
     const randomNumber = Math.floor(Math.random() * (max - min +1) + min);
     return randomNumber;
 }
 
-const numeroRandomico = getRandomInt(1,5)
-
-function somma (userNumber, numeroRandomico) {
-    const risultato = userNumber + numeroRandomico;
-    return risultato;
-}
-
-function pari (numero) {
-    return numero % 2 === 0;
-}
-
-function dispari (numero){
-    return numero % 2 === 1;
-}
-
-function funzioneParioDispari (numero) {
-    if (numero%2 === 0) {
-        return pari
+function isOdd(number) {
+    number = number.parseInt(number,10)
+    if (number%2===1){
+        return true
     } else {
-        return dispari
+        return false
     }
 }
 
-function chiHaVinto (numero, numero) {
-    if (somma === pari) {
-        console.log('ha vinto pari')
-    } else (somma === dispari); {
-        console.log('ha vinto dispari')
+function isEven(number) {
+    number = number.parseInt(number,10)
+    if (number%2===0){
+        return true
+    } else {
+        return false
+    }
+}
+
+function pariODispari(numero) {
+    if (number%2===1){
+        return 'pari'
+    } else {
+        return 'dispari'
     }
 }
